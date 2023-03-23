@@ -17,7 +17,7 @@ pipeline {
                                                   branches: [[name: '*/main']], 
                                                   userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
                                               ])
-          slackSend(channel: 'jenkins-notifies', color: 'good', message: '"Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"')
+          slackSend(channel: 'jenkins-notifies', color: 'good', message: "Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
         }
       }
 
@@ -48,7 +48,7 @@ pipeline {
           sh '''
                 echo "Deploying Code"
                 '''
-          slackSend(color: '#439FE0', message: '"Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"')
+          slackSend(color: '#439FE0', message: "Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
         }
       }
 
