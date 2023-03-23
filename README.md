@@ -1,1 +1,5 @@
 # cursoOpenshift
+
+
+
+fsdgviWDFRHEGFPW
