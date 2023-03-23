@@ -13,11 +13,11 @@ pipeline {
     stage('Code Checkout') {
       steps {
         checkout([
-                                        $class: 'GitSCM', 
-                                        branches: [[name: '*/main']], 
-                                        userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
-                                    ])
-          slackSend(channel: 'jenkins-notifies', color: 'green', message: 'This is a test')
+                                                  $class: 'GitSCM', 
+                                                  branches: [[name: '*/main']], 
+                                                  userRemoteConfigs: [[url: 'https://github.com/spring-projects/spring-petclinic.git']]
+                                              ])
+          slackSend(channel: 'jenkins-notifies', color: 'good', message: '"Build Started - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"')
         }
       }
 
@@ -48,7 +48,7 @@ pipeline {
           sh '''
                 echo "Deploying Code"
                 '''
-          slackSend()
+          slackSend(color: '#439FE0', message: '"Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"')
         }
       }
 
